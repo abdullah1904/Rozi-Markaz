@@ -1,8 +1,10 @@
-
+import AppSidebar from '@/components/AppSidebar'
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <AppSidebar>
+      <main className="flex-1 m-4">Home Page</main>
+    </AppSidebar>
   )
 }
 
