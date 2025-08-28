@@ -2,5 +2,7 @@ onlyBuiltDependencies:
   - '@clerk/shared'
   - '@tailwindcss/oxide'
   - esbuild
+  - inngest-cli
+  - protobufjs
   - sharp
   - unrs-resolver
