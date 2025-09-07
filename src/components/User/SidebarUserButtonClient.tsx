@@ -1,8 +1,7 @@
 "use client";
 import { SidebarMenuButton, useSidebar } from "../ui/sidebar";
-import { DropdownMenu, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { ChevronsUpDown, LogOutIcon, SettingsIcon, UserIcon } from "lucide-react";
-import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu";
 import UserInfo from "./UserInfo";
 import Link from "next/link";
 import { SignOutButton } from "../AuthButtons";
@@ -41,7 +40,7 @@ const SidebarUserButtonClient = ({ user }: Props) => {
                     <UserIcon className="mr-1" /> Profile
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                    <Link href={'/user/settings/notifications'}>
+                    <Link href={'/user-settings/notifications'}>
                         <SettingsIcon className="mr-1" /> Settings
                     </Link>
                 </DropdownMenuItem>

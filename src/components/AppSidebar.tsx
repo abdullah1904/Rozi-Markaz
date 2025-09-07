@@ -7,23 +7,19 @@ import {
     SidebarContent,
     SidebarFooter,
     SidebarMenuItem,
-    SidebarMenuButton,
     SidebarMenu,
-    SidebarGroup,
 } from './ui/sidebar'
-
 import AppSidebarClient from './AppSidebarClient'
-import Link from 'next/link'
-import { LogInIcon } from 'lucide-react'
-import SignedOut from './SignedOut'
 import SidebarUserButton from './User/SidebarUserButton'
 import SignedIn from './SignedIn'
 
 type Props = {
+    content: ReactNode
+    footerButton: ReactNode
     children: ReactNode
 }
 
-const AppSidebar = ({ children }: Props) => {
+const AppSidebar = ({ children, content, footerButton }: Props) => {
     return (
         <SidebarProvider>
             <AppSidebarClient>
@@ -33,32 +29,19 @@ const AppSidebar = ({ children }: Props) => {
                         <span className="text-xl text-nowrap">Rozi Markaz</span>
                     </SidebarHeader>
                     <SidebarContent>
-                        <SidebarGroup>
-                            <SidebarMenu>
-                                <SignedOut>
-                                    <SidebarMenuItem>
-                                        <SidebarMenuButton asChild>
-                                            <Link href={"/sign-in"}>
-                                                <LogInIcon />
-                                                <span>Log In</span>
-                                            </Link>
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                </SignedOut>
-                            </SidebarMenu>
-                        </SidebarGroup>
+                        {content}
                     </SidebarContent>
                     <SignedIn>
                         <SidebarFooter>
                             <SidebarMenu>
                                 <SidebarMenuItem>
-                                    <SidebarUserButton />
+                                    {footerButton}
                                 </SidebarMenuItem>
                             </SidebarMenu>
                         </SidebarFooter>
                     </SignedIn>
                 </Sidebar>
-                {children}
+                <main className='flex-1'>{children}</main>
             </AppSidebarClient>
         </SidebarProvider>
     )

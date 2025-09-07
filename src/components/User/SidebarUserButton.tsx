@@ -1,14 +1,12 @@
 import { Suspense } from 'react'
-import { auth } from '@clerk/nextjs/server'
 import SidebarUserButtonClient from './SidebarUserButtonClient';
 import { getCurrentUser } from '@/lib/auth';
 import { SignOutButton } from '../AuthButtons';
 import { SidebarMenuButton } from '../ui/sidebar';
 import { LogOutIcon } from 'lucide-react';
 
-type Props = {}
 
-const SidebarUserButton = async (props: Props) => {
+const SidebarUserButton = async () => {
   const { user } = await getCurrentUser({ allData: true });
   if(user == null) {
     return (

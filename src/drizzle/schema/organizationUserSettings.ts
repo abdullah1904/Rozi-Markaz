@@ -5,8 +5,8 @@ import { createdAt, updatedAt } from "../schemaHelpers";
 import { relations } from "drizzle-orm";
 
 export const OrganizationUserSettingsTable = pgTable("organization_user_settings", {
-    userId: varchar().notNull().references(() => UserTable.id),
-    organizationId: varchar().notNull().references(() => OrganizationTable.id),
+    userId: varchar().notNull().references(() => UserTable.id, {onDelete: 'cascade'}),
+    organizationId: varchar().notNull().references(() => OrganizationTable.id, {onDelete: 'cascade'}),
     newApplicationEmailNotifications: boolean().notNull().default(false),
     minimumRating: integer(),
     createdAt,
